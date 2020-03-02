@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<br />
+<div class="container">
+    <div class="row">
+         <div class="col-md-10">
+            <p>
+                I am pleased to know you will like to contact me. I am friendly and encourage
+                you to fill the form below. Be rest assured i will definately get back to you.
+                I can't wait to get to know and possibly work with you. 
+            </p>
+        </div>    
+    </div>
+</div>
+
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+            <form action="{% url 'blog:contactfemi' %}" method="post">
+                {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.name }}
+                        </div>
+                    <div class="form-group">
+                        {{ form.email_address }}
+                        <small>I'll never share your email with anyone else.</small>
+                        </div>
+                    <div class="form-group">
+                        {{ form.message }}
+                        <br />
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
